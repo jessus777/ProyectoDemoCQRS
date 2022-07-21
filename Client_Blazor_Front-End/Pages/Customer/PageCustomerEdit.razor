@@ -1,0 +1,16 @@
+﻿@page "/customers/customerEdit/{CustomerId}"
+
+<PageTitle>Customers Edit</PageTitle>
+<br />
+<SpinnerComponent></SpinnerComponent>
+<CardComponent Title="Crear Cliente">
+    <hr class="mb-5" />
+    <div class="row justify-content-evenly">
+        <div class="col-md-12 col-12">
+            <AlertBorder Class="warning warning-alert">
+                <p class="lh-sm fs-6"><i class="bi bi-cone-striped"> </i> Los campos con el <strong>*</strong> son obligatorios.</p>
+            </AlertBorder>
+        </div>
+    </div>
+    <CustomerEditComponent CustomerId="@CustomerId"></CustomerEditComponent>
+</CardComponent>

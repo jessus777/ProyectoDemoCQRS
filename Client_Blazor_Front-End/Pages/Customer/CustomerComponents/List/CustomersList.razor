@@ -1,0 +1,75 @@
+﻿@if (Customers == null)
+{
+    <p>cargando lista de clientes....</p>
+}
+else
+{
+
+    <table id="table_id" class="display responsive nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Segundo Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>RFC</th>
+                <th>Fecha de Registro</th>
+                <th>Sexo</th>
+                <th>Correo</th>
+                <th>Domicilio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Customers)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+                    <td>@customer.SecondName</td>
+                    <td>@customer.FirstLastName</td>
+                    <td>@customer.SecondLastName</td>
+                    <td>@customer.RFC</td>
+                    <td>@customer.RegistartionDate.ToShortDateString()</td>
+                    <td>@customer.GenderType</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.Address</td>
+                    <td>
+                        <div class="dropdown-center">
+                            <button class="btn btn-link dropdown-toggle text-black" type="button" id="dropdownCenterBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-three-dots-vertical"> </i>
+                            </button>
+                            <ul class="dropdown-menu shadow " aria-labelledby="dropdownCenterBtn">
+                                <li><a class="dropdown-item" href="@($"customers/customerDetail/{customer.Id}")"><i class="bi bi-eye-fill"> </i> Detalle</a></li>
+                                <li><a class="dropdown-item" href="@($"customers/customerEdit/{customer.Id}")"><i class="bi bi-pencil-square"> </i> Editar</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item dropdown-item-danger" href="customers" @onclick="(e  => Delete(customer.Id.ToString(), string.Concat(customer.Name +' '+(customer.SecondName??string.Empty)+' '+customer.FirstLastName +' '+ customer.SecondLastName)))"><i class="bi bi-trash-fill"> </i> Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+
+
+
+
+@*<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header" style="color: #720a0a; background-color: rgb(231 168 168 / 85%); border-bottom: 1px solid rgb(235 181 181);">
+    <span style="color: #9f1a1a;"><i class="bi bi-bug-fill"> </i> </span>
+    <strong class="me-auto">Error:</strong>
+    <small>Ahora</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" data-bs-delay='{"hide":150}' aria-label="Close"></button>
+    </div>
+    <div class="toast-body" style="background-color: #f5d5d5; color: red;">
+    <strong>Hello, world! This is a toast message.</strong>
+    </div>
+    </div>
+    </div>*@
+

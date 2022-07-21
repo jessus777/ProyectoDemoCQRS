@@ -1,0 +1,101 @@
+﻿@using Validation
+@using Enums
+<EditForm Model="CustomerDTO" OnValidSubmit="SendEdit" class="row justify-content-evenly">
+    <FluentValidator Validator="CustomerEditValidator"></FluentValidator>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="name"
+                       placeholder="Nombre"
+                       @bind-Value="CustomerDTO.Name" />
+            <label for="name" class="form-label fs-6 fst-italic text-black-50">Nombre <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.Name"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="secondName"
+                       placeholder="Segundo Nombre"
+                       @bind-Value="CustomerDTO.SecondName" />
+            <label for="secondName" class="form-label fs-6 fst-italic text-black-50">Segundo Nombre</label>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="firstLastName"
+                       placeholder="Apellido Paterno"
+                       @bind-Value="CustomerDTO.FirstLastName" />
+            <label for="firstLastName" class="form-label fs-6 fst-italic text-black-50">Apellido Paterno <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.FirstLastName"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="secondLastName"
+                       placeholder="Apellido Paterno"
+                       @bind-Value="CustomerDTO.SecondLastName" />
+            <label for="secondLastName" class="form-label fs-6 fst-italic text-black-50">Apellido Materno <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.SecondLastName"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="rfc"
+                       placeholder="RFC"
+                       @bind-Value="CustomerDTO.RFC" />
+            <label for="rfc" class="form-label fs-6 fst-italic text-black-50">RFC <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.RFC"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputSelect class="form-select" id="genderType"
+                         placeholder="Genero"
+                         @bind-Value="CustomerDTO.GenderType">
+                @if ((int)CustomerDTO.GenderType == (int)GenderType.Female)
+                {
+                    <option disabled value="0">Seleccione..</option>
+                    <option value="@(GenderType.Male)">Masculino </option>
+                    <option select value="@(GenderType.Female)">Femenino </option>
+                }
+                @if ((int)CustomerDTO.GenderType == (int)GenderType.Male)
+                {
+                    <option disabled value="0">Seleccione..</option>
+                    <option select value="@(GenderType.Male)">Masculino </option>
+                    <option value="@(GenderType.Female)">Femenino </option>
+                }
+                @if ((int)CustomerDTO.GenderType == 0)
+                {
+                    <option select disabled value="0">Seleccione..</option>
+                    <option value="@(GenderType.Male)">Masculino </option>
+                    <option value="@(GenderType.Female)">Femenino </option>
+                }
+
+            </InputSelect>
+            <label for="genderType" class="form-label fs-6 fst-italic text-black-50">Genero <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.GenderType"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="email"
+                       placeholder="Correo"
+                       @bind-Value="CustomerDTO.Email" />
+            <label for="email" class="form-label fs-6 fst-italic text-black-50">Correo <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.Email"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="domicilio"
+                       placeholder="Domicilio"
+                       @bind-Value="CustomerDTO.Address" />
+            <label for="domicilio" class="form-label fs-6 fst-italic text-black-50">Domicilio <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => CustomerDTO.Address"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary shadow mb-3 rounded"> <i class="bi bi-sd-card-fill"> </i> Guardar</button>
+        </div>
+    </div>
+</EditForm>

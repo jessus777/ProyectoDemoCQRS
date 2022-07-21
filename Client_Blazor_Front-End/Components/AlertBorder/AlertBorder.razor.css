@@ -1,0 +1,16 @@
+﻿.warning-alert {
+    --bd-callout-border: rgba(var(--bs-warning-rgb), 9) !important;
+    border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300)) !important;
+}
+
+.info-alert {
+    --bd-callout-border: rgba(var(--bs-info-rgb), .5) !important;
+    border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300)) !important;
+}
+
+.danger-alert {
+    --bd-callout-border: rgba(var(--bs-danger-rgb), .5) !important;
+    border-left: 0.25rem solid var(--bd-callout-border, var(--bs-gray-300)) !important;
+}
+
+

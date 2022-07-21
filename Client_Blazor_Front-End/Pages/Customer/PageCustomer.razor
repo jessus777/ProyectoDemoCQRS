@@ -1,0 +1,26 @@
+﻿@page "/customers"
+<PageTitle>Customers</PageTitle>
+<SpinnerComponent></SpinnerComponent>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <CardComponent>
+            <div class="row justify-content-end">
+                <div class="col-md-12 text-end">
+                    <a href="customers/customerAdd" class="btn btn-primary shadow mb-3 rounded" tabindex="-1" role="button" aria-disabled="false"><i class="bi bi-person-plus-fill"> </i> Agregar Cliente</a>
+                </div>
+            </div>
+        </CardComponent>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <CardComponent Title="Lista de Clientes">
+            <hr />
+            <CustomersList></CustomersList>
+        </CardComponent>
+    </div>
+</div>
+
+

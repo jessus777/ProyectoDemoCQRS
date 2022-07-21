@@ -1,0 +1,205 @@
+﻿
+@using Enums
+@using Validation
+
+<EditForm Model="Customers" OnValidSubmit="Send"  class="row justify-content-evenly">
+    <FluentValidator Validator="Form1Validator"></FluentValidator>
+    <div class="row justify-content-end">
+        <div class="col-md-6 mb-4 text-end">
+            <button type="reset" class="btn btn-outline-light shadow rounded text-muted"><i class="bi bi-arrow-repeat"> </i> Limpiar campos</button>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="name"
+                       placeholder="Nombre"
+                       @bind-Value="Customers.Name" />
+            <label for="name" class="form-label fs-6 fst-italic text-black-50">Nombre <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.Name"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="secondName"
+                       placeholder="Segundo Nombre"
+                       @bind-Value="Customers.SecondName" />
+            <label for="secondName" class="form-label fs-6 fst-italic text-black-50">Segundo Nombre</label>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="firstLastName"
+                       placeholder="Apellido Paterno"
+                       @bind-Value="Customers.FirstLastName" />
+            <label for="firstLastName" class="form-label fs-6 fst-italic text-black-50">Apellido Paterno <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.FirstLastName"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="secondLastName"
+                       placeholder="Apellido Paterno"
+                       @bind-Value="Customers.SecondLastName" />
+            <label for="secondLastName" class="form-label fs-6 fst-italic text-black-50">Apellido Materno <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.SecondLastName"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="rfc"
+                       placeholder="RFC"
+                       @bind-Value="Customers.RFC" />
+            <label for="rfc" class="form-label fs-6 fst-italic text-black-50">RFC <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.RFC"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputSelect class="genderType" id="genderType0"
+                         placeholder="Genero"
+                         @bind-Value="Customers.GenderType">
+                <option selected disabled value="0">Seleccione..</option>
+                <option value="@(GenderType.Male)">Masculino </option>
+                <option value="@(GenderType.Female)">Femenino </option>
+            </InputSelect>
+            <label for="genderType0" class="form-label fs-6 fst-italic text-black-50">Genero <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.GenderType"></ValidationMessage></strong>
+        </div>
+    </div>
+   
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="email"
+                       placeholder="Correo"
+                       @bind-Value="Customers.Email" />
+            <label for="email" class="form-label fs-6 fst-italic text-black-50">Correo <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.Email"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="domicilio"
+                       placeholder="Domicilio"
+                       @bind-Value="Customers.Address" />
+            <label for="domicilio" class="form-label fs-6 fst-italic text-black-50">Domicilio <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.Address"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="col-md-5 mb-3">
+        <div class="form-floating">
+            <InputText class="form-control" id="domicilioss"
+                       placeholder="Domicilio"
+                       @bind-Value="Customers.FirstLastName" type="search"/>
+            <label for="domicilioss" class="form-label fs-6 fst-italic text-black-50">Domicilio <strong>*</strong></label>
+            <strong> <ValidationMessage For="() => Customers.FirstLastName"></ValidationMessage></strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-primary shadow mb-3 rounded"> <i class="bi bi-sd-card-fill"> </i> Guardar</button>
+        </div>
+    </div>
+</EditForm>
+<style>
+/*.select2-container--default  .select2-selection--single, .select2-container .select2-selection--single {
+    display: block !important;
+    width: 100% !important;
+    padding: 0.375rem 0.75rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #212529 !important;
+    background-color: #fff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: 0.25rem !important;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out !important;
+}*/
+.select2-container{
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #fff !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 0.25rem !important;
+}
+.select2-container .select2-selection--single {
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    height: calc(3.5rem + 2px)!important;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/*.form-floating>.form-select {
+    padding-top: 1.625rem;
+    padding-bottom: 0.625rem;
+}
+*/
+.select2-container .select2-selection--single .select2-selection__rendered {
+    display: block;
+    padding-top: 1.625rem !important;
+    padding-bottom: 0.625rem !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 4rem !important;
+    position: absolute !important;
+    top: 1px !important;
+    right: 1px !important;
+    width: 45px !important;
+}
+
+.select2-search--dropdown .select2-search__field:focus-visible {
+   /* padding: 4px;
+    width: 100%;
+    box-sizing: border-box;*/
+    border-color: #86b7fe!important;
+        outline: 0 !important;
+        box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%) !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #080808 transparent transparent transparent;
+    border-style: solid;
+    border-width: 5px 4px 0 4px;
+    height: 0;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    border-color: transparent transparent #080808 transparent !important;
+    border-width: 0 4px 5px 4px !important;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    /*border: 1px solid #aaa;*/
+    border-radius: 5px !important;
+    border: 1px solid #ced4da !important;
+    height: 45px !important;
+}
+.select2-container--open .select2-dropdown--below {
+    border-radius: 9px !important;
+}
+.select2-results__option {
+    padding: 3px !important;
+}
+[type=search] {
+  outline-offset: -2px !important;
+  -webkit-appearance: textfield !important;
+}
+::-webkit-search-decoration {
+  -webkit-appearance: none !important;
+}
+</style>
