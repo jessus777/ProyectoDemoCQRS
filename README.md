@@ -13,7 +13,10 @@ Dato: ya contiene una carpeta de migración con algunos datos de prueba en el mo
 https://docs.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
 
 paquetes nuggets.
+
+
 Back-end
+
 Layer Core/Application
 Se hace uso de FluentValidation.DependencyInjectionExtensions Version="11.1.0" 
 se hace uso de MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1"
